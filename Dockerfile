@@ -16,7 +16,9 @@ RUN cp .env.example .env \
     && php artisan key:generate \
     && touch database/database.sqlite \
     && php artisan migrate --force \
-    && php artisan db:seed --force
+    && php artisan db:seed --force \
+    && php artisan config:cache \
+    && php artisan route:cache
 
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
 
