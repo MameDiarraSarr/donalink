@@ -17,7 +17,6 @@
             padding-top: 65px;
         }
 
-        /* NAVBAR */
         .navbar {
             padding: 12px 40px;
             display: flex; justify-content: space-between; align-items: center;
@@ -33,12 +32,10 @@
         }
         .btn-back:hover { background: rgba(153,200,248,0.22); color: white; }
 
-        /* HERO */
         .hero { text-align: center; padding: 15px 20px 50px; }
         .hero h1 { font-size: 1.6rem; font-weight: 800; margin-bottom: 5px; color: white; }
         .hero p { color: #99c8f8; opacity: 0.9; font-size: 0.88rem; }
 
-        /* FORM CONTAINER */
         .form-container {
             background: #f0f4fa; border-radius: 30px 30px 0 0;
             flex: 1; padding: 40px;
@@ -67,7 +64,7 @@
         /* TYPE SELECTOR */
         .type-selector { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 10px; }
         .type-btn {
-            border: 2px solid #dce8f5; border-radius: 14px; padding: 18px;
+            border: 2px solid #dce8f5; border-radius: 14px; padding: 22px 18px;
             text-align: center; cursor: pointer; transition: all 0.2s; background: #f8fbff;
         }
         .type-btn:hover { border-color: #2d5f9a; background: linear-gradient(135deg, #eef4fc, #dce8f5); }
@@ -75,7 +72,24 @@
             border-color: #08346b; background: linear-gradient(135deg, #dce8f5, #bdd6f0);
             box-shadow: 0 4px 15px rgba(8,52,107,0.12);
         }
-        .type-btn .emoji { font-size: 2rem; display: block; margin-bottom: 8px; }
+
+        /* ICÔNE DANS LE BOUTON TYPE */
+        .type-btn .type-icon {
+            width: 52px; height: 52px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem; margin: 0 auto 12px; transition: all 0.2s;
+        }
+        .type-btn .type-icon.fin {
+            background: linear-gradient(135deg, #06142f, #2d5f9a);
+            color: #99c8f8;
+        }
+        .type-btn .type-icon.mat {
+            background: linear-gradient(135deg, #2d5f9a, #6196d1);
+            color: #dce8f5;
+        }
+        .type-btn.active .type-icon.fin { background: linear-gradient(135deg, #06142f, #08346b); }
+        .type-btn.active .type-icon.mat { background: linear-gradient(135deg, #08346b, #2d5f9a); }
+
         .type-btn .label { font-weight: 700; color: #06142f; font-size: 0.9rem; }
         .type-btn .desc { color: #6196d1; font-size: 0.78rem; margin-top: 3px; }
 
@@ -105,16 +119,15 @@
         .anonyme-text .title { font-weight: 600; color: #06142f; font-size: 0.88rem; }
         .anonyme-text .sub { color: #6196d1; font-size: 0.78rem; }
 
-        /* SUBMIT */
         .btn-submit {
             background: linear-gradient(135deg, #06142f, #08346b); color: #99c8f8;
             border: none; border-radius: 12px; padding: 14px; font-weight: 700;
             font-size: 1rem; width: 100%; cursor: pointer; transition: all 0.2s;
             box-shadow: 0 4px 15px rgba(6,20,47,0.3); letter-spacing: 0.3px;
         }
-        .btn-submit:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 8px 20px rgba(6,20,47,0.35); }
+        .btn-submit:hover { opacity: 0.9; transform: translateY(-1px); }
 
-        /* ===== RESPONSIVE ===== */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .navbar { padding: 10px 16px; }
             body { padding-top: 58px; }
@@ -123,8 +136,8 @@
             .form-container { padding: 20px 12px; border-radius: 24px 24px 0 0; }
             .form-card { padding: 22px 16px; border-radius: 16px; }
             .type-selector { gap: 8px; }
-            .type-btn { padding: 14px 10px; }
-            .type-btn .emoji { font-size: 1.5rem; }
+            .type-btn { padding: 16px 10px; }
+            .type-btn .type-icon { width: 44px; height: 44px; font-size: 1.1rem; }
             .type-btn .label { font-size: 0.82rem; }
             .type-btn .desc { font-size: 0.72rem; }
             .montants-rapides { gap: 6px; }
@@ -188,18 +201,27 @@
 
             <div class="section-title">Type de don</div>
             <div class="type-selector mb-4">
+
+                {{-- FINANCIER --}}
                 <div class="type-btn {{ old('type') == 'financier' ? 'active' : '' }}"
                      onclick="selectType('financier', this)">
-                    <span class="emoji">💰</span>
+                    <div class="type-icon fin">
+                        <i class="fas fa-coins"></i>
+                    </div>
                     <div class="label">Don financier</div>
                     <div class="desc">Envoyer de l'argent</div>
                 </div>
+
+                {{-- MATÉRIEL --}}
                 <div class="type-btn {{ old('type') == 'materiel' ? 'active' : '' }}"
                      onclick="selectType('materiel', this)">
-                    <span class="emoji">📦</span>
+                    <div class="type-icon mat">
+                        <i class="fas fa-box-open"></i>
+                    </div>
                     <div class="label">Don matériel</div>
                     <div class="desc">Donner des objets</div>
                 </div>
+
             </div>
             @error('type') <div class="text-danger small mb-3">{{ $message }}</div> @enderror
 
