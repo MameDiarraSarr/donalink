@@ -16,7 +16,6 @@
             padding-top: 65px;
         }
 
-        /* NAVBAR */
         .navbar {
             padding: 12px 40px;
             display: flex; justify-content: space-between; align-items: center;
@@ -32,19 +31,16 @@
             border: 2px solid rgba(153,200,248,0.35);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            color: #99c8f8; font-weight: 700; font-size: 1rem;
-            flex-shrink: 0;
+            color: #99c8f8; font-weight: 700; font-size: 1rem; flex-shrink: 0;
         }
         .user-name { color: rgba(153,200,248,0.9); font-size: 0.9rem; font-weight: 500; }
         .btn-logout {
             background: rgba(153,200,248,0.12); color: #99c8f8;
             border: 1px solid rgba(153,200,248,0.25); border-radius: 20px;
-            padding: 7px 16px; font-size: 0.82rem;
-            cursor: pointer; transition: all 0.2s;
+            padding: 7px 16px; font-size: 0.82rem; cursor: pointer; transition: all 0.2s;
         }
         .btn-logout:hover { background: rgba(153,200,248,0.22); color: white; }
 
-        /* HERO */
         .hero { text-align: center; padding: 30px 20px 50px; }
         .hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -1px; color: white; }
         .hero p { font-size: 1rem; margin-bottom: 25px; color: #99c8f8; opacity: 0.9; }
@@ -54,9 +50,8 @@
             text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
             box-shadow: 0 8px 25px rgba(6,20,47,0.35); transition: all 0.2s;
         }
-        .btn-don:hover { transform: translateY(-3px); background: white; color: #06142f; box-shadow: 0 12px 30px rgba(6,20,47,0.4); }
+        .btn-don:hover { transform: translateY(-3px); background: white; color: #06142f; }
 
-        /* STATS */
         .stats-container {
             max-width: 800px; margin: 0 auto; padding: 0 20px;
             display: grid; grid-template-columns: repeat(3, 1fr);
@@ -70,7 +65,6 @@
         .stat-box .num { font-size: 1.8rem; font-weight: 800; line-height: 1; color: white; }
         .stat-box .lbl { font-size: 0.78rem; color: #99c8f8; margin-top: 5px; }
 
-        /* WHITE CARD */
         .white-card {
             background: #f0f4fa; border-radius: 30px 30px 0 0;
             min-height: 60vh; margin-top: 50px; padding: 50px 40px 40px;
@@ -80,7 +74,6 @@
             letter-spacing: 2px; color: #2d5f9a; margin-bottom: 15px;
         }
 
-        /* DON ITEMS */
         .don-item {
             background: white; border-radius: 16px; padding: 18px 22px;
             margin-bottom: 12px; display: flex; align-items: center; gap: 16px;
@@ -88,16 +81,26 @@
             border: 1.5px solid #dce8f5;
         }
         .don-item:hover { border-color: #08346b; box-shadow: 0 6px 20px rgba(8,52,107,0.12); transform: translateY(-2px); }
+
+        /* ICÔNE CERCLE */
         .don-circle {
             width: 50px; height: 50px; border-radius: 14px;
             display: flex; align-items: center; justify-content: center;
-            font-size: 1.3rem; flex-shrink: 0;
+            flex-shrink: 0; font-size: 1.2rem;
         }
-        .don-circle.fin { background: linear-gradient(135deg, #99c8f8, #6196d1); }
-        .don-circle.mat { background: linear-gradient(135deg, #c5dff5, #99c8f8); }
+        .don-circle.fin {
+            background: linear-gradient(135deg, #06142f, #2d5f9a);
+            color: #99c8f8;
+        }
+        .don-circle.mat {
+            background: linear-gradient(135deg, #2d5f9a, #6196d1);
+            color: #dce8f5;
+        }
+
         .don-details { flex: 1; min-width: 0; }
         .don-details .titre { font-weight: 700; color: #06142f; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .don-details .meta { color: #6196d1; font-size: 0.78rem; margin-top: 4px; }
+
         .don-right { text-align: right; flex-shrink: 0; }
         .don-right .montant { font-weight: 800; font-size: 1.05rem; }
         .don-right .montant.fin { color: #08346b; }
@@ -105,7 +108,8 @@
         .don-right .mode { color: #6196d1; font-size: 0.75rem; margin-top: 2px; }
 
         .pill {
-            display: inline-block; padding: 4px 12px; border-radius: 20px;
+            display: inline-flex; align-items: center; gap: 5px;
+            padding: 4px 12px; border-radius: 20px;
             font-size: 0.72rem; font-weight: 700; margin-top: 6px;
         }
         .pill.attente { background: #fdf3dc; color: #b07d20; }
@@ -113,11 +117,10 @@
         .pill.annule { background: #fde8e8; color: #c0392b; }
 
         .empty { text-align: center; padding: 60px 20px; }
-        .empty .icon { font-size: 3.5rem; margin-bottom: 15px; }
         .empty h5 { font-weight: 700; color: #06142f; margin-bottom: 8px; }
         .empty p { color: #2d5f9a; font-size: 0.9rem; }
 
-        /* ===== RESPONSIVE ===== */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .navbar { padding: 10px 16px; }
             body { padding-top: 58px; }
@@ -132,7 +135,7 @@
             .stat-box .lbl { font-size: 0.68rem; }
             .white-card { padding: 40px 16px 30px; border-radius: 24px 24px 0 0; }
             .don-item { padding: 14px 16px; gap: 12px; }
-            .don-circle { width: 42px; height: 42px; font-size: 1.1rem; border-radius: 12px; }
+            .don-circle { width: 42px; height: 42px; font-size: 1rem; border-radius: 12px; }
             .don-details .titre { font-size: 0.88rem; }
             .don-right .montant { font-size: 0.92rem; }
         }
@@ -214,33 +217,57 @@
 
         @foreach($dons as $don)
         <div class="don-item">
+
+            {{-- ICÔNE FONT AWESOME --}}
             <div class="don-circle {{ $don->type == 'financier' ? 'fin' : 'mat' }}">
-                {{ $don->type == 'financier' ? '💰' : '📦' }}
+                @if($don->type == 'financier')
+                    <i class="fas fa-coins"></i>
+                @else
+                    <i class="fas fa-box-open"></i>
+                @endif
             </div>
+
             <div class="don-details">
                 <div class="titre">{{ $don->campagne->titre }}</div>
                 <div class="meta">
                     <i class="fas fa-calendar-alt me-1"></i>
                     {{ $don->created_at->format('d/m/Y') }}
-                    @if($don->anonyme) · Anonyme @endif
+                    @if($don->anonyme)
+                        · <i class="fas fa-user-secret"></i> Anonyme
+                    @endif
                 </div>
             </div>
+
             <div class="don-right">
                 @if($don->type == 'financier')
                     <div class="montant fin">{{ number_format($don->montant, 0, ',', ' ') }} F</div>
-                    <div class="mode">{{ $don->mode_paiement }}</div>
+                    <div class="mode">
+                        <i class="fas fa-credit-card" style="font-size:0.7rem;"></i>
+                        {{ $don->mode_paiement }}
+                    </div>
                 @else
                     <div class="montant mat">{{ $don->description_materiel }}</div>
-                    <div class="mode">Qté : {{ $don->quantite }}</div>
+                    <div class="mode">
+                        <i class="fas fa-cubes" style="font-size:0.7rem;"></i>
+                        Qté : {{ $don->quantite }}
+                    </div>
                 @endif
+
                 @if($don->statut == 'en_attente')
-                    <span class="pill attente">⏳ En attente</span>
+                    <span class="pill attente">
+                        <i class="fas fa-clock"></i> En attente
+                    </span>
                 @elseif($don->statut == 'confirme')
-                    <span class="pill confirme">✅ Confirmé</span>
+                    <span class="pill confirme">
+                        <i class="fas fa-check-circle"></i> Confirmé
+                    </span>
                 @else
-                    <span class="pill annule">❌ Annulé</span>
+                    <span class="pill annule">
+                        <i class="fas fa-times-circle"></i> Annulé
+                    </span>
                 @endif
             </div>
+
         </div>
         @endforeach
     @endif
